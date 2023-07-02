@@ -11,6 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@prisma/client": "^4.16.2",
     "@whiskeysockets/baileys": "^6.3.0",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -22,6 +23,7 @@
     "@types/cors": "^2.8.13",
     "@types/express": "^4.17.17",
     "@types/morgan": "^1.9.4",
+    "prisma": "^4.16.2",
     "ts-node-dev": "^2.0.0"
   }
 }

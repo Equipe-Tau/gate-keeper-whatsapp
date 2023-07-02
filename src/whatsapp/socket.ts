@@ -1,6 +1,6 @@
 import path from 'path'
 
-import makeWASocket, { useMultiFileAuthState } from '@whiskeysockets/baileys'
+import makeWASocket, { useMultiFileAuthState, BaileysEventMap } from '@whiskeysockets/baileys'
 import { WhatsappBot } from './index'
 
 export class Socket {
@@ -29,12 +29,15 @@ export class Socket {
         setTimeout(this.init, 5000)
       } else if (connection === 'open') {
         console.log('[SOCKET] Connected to WhatsApp')
-        console.log(this.handler)
         this.handler.init();
       }
     })
 
     this.instance.ev.on("creds.update", saveCreds);
+  }
+
+  public registerEvent<T extends keyof BaileysEventMap>(event: T, listener: (arg: BaileysEventMap[T]) => void) {
+    this.instance.ev.on(event, listener)
   }
 
   public getInstance() {

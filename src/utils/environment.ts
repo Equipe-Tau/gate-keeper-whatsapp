@@ -4,7 +4,7 @@ export class ENV {
 
   public static initialized = false;
 
-  public static get(index?: keyof ENVInterface): ENVInterface {
+  public static get(index?: keyof ENVInterface): ENVInterface | any {
     if (!this.initialized) {
       dotenv.config();
     }
@@ -19,4 +19,5 @@ export class ENV {
 
 export interface ENVInterface {
   PORT: number;
+  BROADCAST_ID: string;
 }
