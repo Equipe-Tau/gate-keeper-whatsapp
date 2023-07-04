@@ -24,7 +24,7 @@ export class WhatsappBot {
     this.socket.registerEvent("messages.upsert", async ({ messages }) => {
       messages.forEach(async (message) => {
 
-        if (!message.message.conversation || message.key.remoteJid !== ENV.get("BROADCAST_ID")) {
+        if (!message.message?.conversation || message.key.remoteJid !== ENV.get("BROADCAST_ID")) {
           return;
         }
 
